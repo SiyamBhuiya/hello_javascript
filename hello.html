@@ -3,13 +3,27 @@
     <head>
         <title>Hello</title>
         <script>
-            function hello() {
-            alert("Hello, World!");
-        }
+            document.addEventListener("DOMContentLoaded", function(){
+                document.querySelector('form').onsubmit = function(){
+
+                   const name = document.querySelector('#name').value;
+                   if (name ===""){
+                          alert("Please enter a name!");
+                          return false;
+                   }
+                   else{
+                          alert(`hello, ${name}!`);
+                          return false;
+                   }
+                }
+            });
         </script>
     </head>
     <body>
         <h1>Hello!</h1>
-        <button onclick="hello()">Click Here</button>
+        <form>
+            <input autofocus id="name" placeholder="Name" type="text">
+            <input type="submit">
+        </form>
     </body>
     </html>
